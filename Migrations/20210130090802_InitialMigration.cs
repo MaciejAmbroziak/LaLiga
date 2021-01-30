@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LaLiga.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -79,18 +79,32 @@ namespace LaLiga.Migrations
                     HalfTimeAwayGoals = table.Column<int>(type: "int", nullable: false),
                     FullTimeHomeGoals = table.Column<int>(type: "int", nullable: false),
                     FullTimeAwayGoals = table.Column<int>(type: "int", nullable: false),
+                    HomeOffSides = table.Column<int>(type: "int", nullable: false),
+                    AwayOffSides = table.Column<int>(type: "int", nullable: false),
                     HomeFouls = table.Column<int>(type: "int", nullable: false),
                     AwayFouls = table.Column<int>(type: "int", nullable: false),
-                    HomeShots = table.Column<int>(type: "int", nullable: false),
-                    AwayShots = table.Column<int>(type: "int", nullable: false),
+                    HomeShotsInsideBox = table.Column<int>(type: "int", nullable: false),
+                    AwayShotsInsideBox = table.Column<int>(type: "int", nullable: false),
+                    HomeShotsOutsideBox = table.Column<int>(type: "int", nullable: false),
+                    AwayShotsOutsideBox = table.Column<int>(type: "int", nullable: false),
                     HomeShotsOnTarget = table.Column<int>(type: "int", nullable: false),
                     AwayShotsOnTarget = table.Column<int>(type: "int", nullable: false),
+                    HomeShotsOffGoal = table.Column<int>(type: "int", nullable: false),
+                    AwayShotsOffGoal = table.Column<int>(type: "int", nullable: false),
+                    HomeTotalShots = table.Column<int>(type: "int", nullable: false),
+                    AwayTotalShots = table.Column<int>(type: "int", nullable: false),
+                    HomeBlockedShots = table.Column<int>(type: "int", nullable: false),
+                    AwayBlockedShots = table.Column<int>(type: "int", nullable: false),
                     HomeCorners = table.Column<int>(type: "int", nullable: false),
                     AwayCorners = table.Column<int>(type: "int", nullable: false),
                     HomeYellowCards = table.Column<int>(type: "int", nullable: false),
                     AwayYellowCards = table.Column<int>(type: "int", nullable: false),
                     HomeRedCards = table.Column<int>(type: "int", nullable: false),
                     AwayRedCards = table.Column<int>(type: "int", nullable: false),
+                    HomeBallPossession = table.Column<int>(type: "int", nullable: false),
+                    AwayBallPossession = table.Column<int>(type: "int", nullable: false),
+                    HomeGoalKeeperSaves = table.Column<int>(type: "int", nullable: false),
+                    AwayGoalKeeperSaves = table.Column<int>(type: "int", nullable: false),
                     Referees = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -117,6 +131,12 @@ namespace LaLiga.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_League_LeagueName_LeagueSeazon",
+                table: "League",
+                columns: new[] { "LeagueName", "LeagueSeazon" },
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Match_AwayTeamTeamId",
                 table: "Match",
                 column: "AwayTeamTeamId");
@@ -125,6 +145,12 @@ namespace LaLiga.Migrations
                 name: "IX_Match_HomeTeamTeamId",
                 table: "Match",
                 column: "HomeTeamTeamId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Match_MatchDateTime_RefereeId",
+                table: "Match",
+                columns: new[] { "MatchDateTime", "RefereeId" },
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Match_Referees",

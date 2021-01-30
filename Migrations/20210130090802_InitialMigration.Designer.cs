@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaLiga.Migrations
 {
     [DbContext(typeof(MyAppContext))]
-    [Migration("20210125155249_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20210130090802_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,6 +36,9 @@ namespace LaLiga.Migrations
 
                     b.HasKey("LeagueId");
 
+                    b.HasIndex("LeagueName", "LeagueSeazon")
+                        .IsUnique();
+
                     b.ToTable("League");
                 });
 
@@ -46,22 +49,43 @@ namespace LaLiga.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int>("AwayBallPossession")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AwayBlockedShots")
+                        .HasColumnType("int");
+
                     b.Property<int>("AwayCorners")
                         .HasColumnType("int");
 
                     b.Property<int>("AwayFouls")
                         .HasColumnType("int");
 
+                    b.Property<int>("AwayGoalKeeperSaves")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AwayOffSides")
+                        .HasColumnType("int");
+
                     b.Property<int>("AwayRedCards")
                         .HasColumnType("int");
 
-                    b.Property<int>("AwayShots")
+                    b.Property<int>("AwayShotsInsideBox")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AwayShotsOffGoal")
                         .HasColumnType("int");
 
                     b.Property<int>("AwayShotsOnTarget")
                         .HasColumnType("int");
 
+                    b.Property<int>("AwayShotsOutsideBox")
+                        .HasColumnType("int");
+
                     b.Property<int?>("AwayTeamTeamId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AwayTotalShots")
                         .HasColumnType("int");
 
                     b.Property<int>("AwayYellowCards")
@@ -79,22 +103,43 @@ namespace LaLiga.Migrations
                     b.Property<int>("HalfTimeHomeGoals")
                         .HasColumnType("int");
 
+                    b.Property<int>("HomeBallPossession")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HomeBlockedShots")
+                        .HasColumnType("int");
+
                     b.Property<int>("HomeCorners")
                         .HasColumnType("int");
 
                     b.Property<int>("HomeFouls")
                         .HasColumnType("int");
 
+                    b.Property<int>("HomeGoalKeeperSaves")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HomeOffSides")
+                        .HasColumnType("int");
+
                     b.Property<int>("HomeRedCards")
                         .HasColumnType("int");
 
-                    b.Property<int>("HomeShots")
+                    b.Property<int>("HomeShotsInsideBox")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HomeShotsOffGoal")
                         .HasColumnType("int");
 
                     b.Property<int>("HomeShotsOnTarget")
                         .HasColumnType("int");
 
+                    b.Property<int>("HomeShotsOutsideBox")
+                        .HasColumnType("int");
+
                     b.Property<int?>("HomeTeamTeamId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HomeTotalShots")
                         .HasColumnType("int");
 
                     b.Property<int>("HomeYellowCards")
@@ -122,6 +167,9 @@ namespace LaLiga.Migrations
                     b.HasIndex("HomeTeamTeamId");
 
                     b.HasIndex("Referees");
+
+                    b.HasIndex("MatchDateTime", "RefereeId")
+                        .IsUnique();
 
                     b.ToTable("Match");
                 });
