@@ -4,14 +4,16 @@ using LaLiga.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LaLiga.Migrations
 {
     [DbContext(typeof(MyAppContext))]
-    partial class MyAppContextModelSnapshot : ModelSnapshot
+    [Migration("20210214214217_SecondMigration")]
+    partial class SecondMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,9 +67,6 @@ namespace LaLiga.Migrations
                     b.Property<int>("AwayOffSides")
                         .HasColumnType("int");
 
-                    b.Property<int>("AwayPassesAcurate")
-                        .HasColumnType("int");
-
                     b.Property<int>("AwayRedCards")
                         .HasColumnType("int");
 
@@ -84,9 +83,6 @@ namespace LaLiga.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("AwayTeamTeamId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AwayTotalPasses")
                         .HasColumnType("int");
 
                     b.Property<int>("AwayTotalShots")
@@ -125,9 +121,6 @@ namespace LaLiga.Migrations
                     b.Property<int>("HomeOffSides")
                         .HasColumnType("int");
 
-                    b.Property<int>("HomePassesAcurate")
-                        .HasColumnType("int");
-
                     b.Property<int>("HomeRedCards")
                         .HasColumnType("int");
 
@@ -146,9 +139,6 @@ namespace LaLiga.Migrations
                     b.Property<int?>("HomeTeamTeamId")
                         .HasColumnType("int");
 
-                    b.Property<int>("HomeTotalPasses")
-                        .HasColumnType("int");
-
                     b.Property<int>("HomeTotalShots")
                         .HasColumnType("int");
 
@@ -161,6 +151,9 @@ namespace LaLiga.Migrations
                     b.Property<DateTime>("MatchDateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("PassesAcurate")
+                        .HasColumnType("int");
+
                     b.Property<int>("RefereeId")
                         .HasColumnType("int");
 
@@ -168,6 +161,9 @@ namespace LaLiga.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("Seazon")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalPasses")
                         .HasColumnType("int");
 
                     b.HasKey("MatchId");

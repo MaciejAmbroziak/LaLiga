@@ -49,6 +49,10 @@ namespace LaLiga.Models
         public int AwayBallPossession { get; set; }
         public int HomeGoalKeeperSaves { get; set; }
         public int AwayGoalKeeperSaves { get; set; }
+        public int HomeTotalPasses { get; set; }
+        public int AwayTotalPasses { get; set; }
+        public int HomePassesAcurate { get; set; }
+        public int AwayPassesAcurate { get; set; }
 
 
     }
