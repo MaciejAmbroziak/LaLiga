@@ -25,7 +25,7 @@ namespace LaLiga.Data
                 HasIndex(a => new { a.MatchDateTime, a.RefereeId }).
                 IsUnique();
             modelBuilder.Entity<Referee>().ToTable("Referee").
-                HasIndex(a => new {a.FirstName, a.LastName})
+                HasIndex(a => new {a.NameAndCountry})
                 .IsUnique();
             modelBuilder.Entity<League>().ToTable("League").
                 HasIndex(a => new { a.LeagueName, a.LeagueSeazon}).

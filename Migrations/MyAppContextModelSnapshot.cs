@@ -179,10 +179,7 @@ namespace LaLiga.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("LastName")
+                    b.Property<string>("NameAndCountry")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("Referee")
@@ -190,11 +187,11 @@ namespace LaLiga.Migrations
 
                     b.HasKey("RefereeId");
 
-                    b.HasIndex("Referee");
-
-                    b.HasIndex("FirstName", "LastName")
+                    b.HasIndex("NameAndCountry")
                         .IsUnique()
-                        .HasFilter("[FirstName] IS NOT NULL AND [LastName] IS NOT NULL");
+                        .HasFilter("[NameAndCountry] IS NOT NULL");
+
+                    b.HasIndex("Referee");
 
                     b.ToTable("Referee");
                 });

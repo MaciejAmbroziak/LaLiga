@@ -27,8 +27,7 @@ namespace LaLiga.Migrations
                 {
                     RefereeId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
+                    NameAndCountry = table.Column<string>(nullable: true),
                     Referee = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -158,16 +157,16 @@ namespace LaLiga.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Referee_NameAndCountry",
+                table: "Referee",
+                column: "NameAndCountry",
+                unique: true,
+                filter: "[NameAndCountry] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Referee_Referee",
                 table: "Referee",
                 column: "Referee");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Referee_FirstName_LastName",
-                table: "Referee",
-                columns: new[] { "FirstName", "LastName" },
-                unique: true,
-                filter: "[FirstName] IS NOT NULL AND [LastName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Team_Team",

@@ -9,8 +9,7 @@ namespace LaLiga.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RefereeId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string NameAndCountry { get; set; }
         public League RefereeLeague { get; set; }
         [ForeignKey("Referees")]
         public ICollection<Match> Matches { get; set; }
