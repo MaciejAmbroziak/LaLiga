@@ -10,23 +10,23 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaLiga.Migrations
 {
     [DbContext(typeof(MyAppContext))]
-    [Migration("20210130090802_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20210214100311_IntitialMigration")]
+    partial class IntitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseIdentityColumns()
+                .HasAnnotation("ProductVersion", "3.1.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.2");
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("LaLiga.Models.League", b =>
                 {
                     b.Property<int>("LeagueId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("LeagueName")
                         .HasColumnType("int");
@@ -47,7 +47,7 @@ namespace LaLiga.Migrations
                     b.Property<int>("MatchId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AwayBallPossession")
                         .HasColumnType("int");
@@ -179,7 +179,7 @@ namespace LaLiga.Migrations
                     b.Property<int>("RefereeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
@@ -202,7 +202,7 @@ namespace LaLiga.Migrations
                     b.Property<int>("TeamId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Logo")
                         .HasColumnType("nvarchar(max)");
@@ -233,10 +233,6 @@ namespace LaLiga.Migrations
                     b.HasOne("LaLiga.Models.Referee", null)
                         .WithMany("Matches")
                         .HasForeignKey("Referees");
-
-                    b.Navigation("AwayTeam");
-
-                    b.Navigation("HomeTeam");
                 });
 
             modelBuilder.Entity("LaLiga.Models.Referee", b =>
@@ -244,8 +240,6 @@ namespace LaLiga.Migrations
                     b.HasOne("LaLiga.Models.League", "RefereeLeague")
                         .WithMany()
                         .HasForeignKey("RefereeLeagueLeagueId");
-
-                    b.Navigation("RefereeLeague");
                 });
 
             modelBuilder.Entity("LaLiga.Models.Team", b =>
@@ -253,23 +247,6 @@ namespace LaLiga.Migrations
                     b.HasOne("LaLiga.Models.League", null)
                         .WithMany("Teams")
                         .HasForeignKey("Team");
-                });
-
-            modelBuilder.Entity("LaLiga.Models.League", b =>
-                {
-                    b.Navigation("Teams");
-                });
-
-            modelBuilder.Entity("LaLiga.Models.Referee", b =>
-                {
-                    b.Navigation("Matches");
-                });
-
-            modelBuilder.Entity("LaLiga.Models.Team", b =>
-                {
-                    b.Navigation("AwayMatches");
-
-                    b.Navigation("HomeMatches");
                 });
 #pragma warning restore 612, 618
         }
