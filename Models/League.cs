@@ -17,7 +17,7 @@ namespace LaLiga.Models
 
         [ForeignKey("Team")]        
         public ICollection<Team> Teams { get; set; }
-
-
+        [ForeignKey("Referee")]
+        public ICollection<Referee> Referees { get; set; }
     }
 }

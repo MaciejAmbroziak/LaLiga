@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LaLiga.Migrations
 {
-    public partial class IntitialMigration : Migration
+    public partial class FirstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,14 +29,14 @@ namespace LaLiga.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
-                    RefereeLeagueLeagueId = table.Column<int>(nullable: true)
+                    Referee = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Referee", x => x.RefereeId);
                     table.ForeignKey(
-                        name: "FK_Referee_League_RefereeLeagueLeagueId",
-                        column: x => x.RefereeLeagueLeagueId,
+                        name: "FK_Referee_League_Referee",
+                        column: x => x.Referee,
                         principalTable: "League",
                         principalColumn: "LeagueId",
                         onDelete: ReferentialAction.Restrict);
@@ -158,9 +158,16 @@ namespace LaLiga.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Referee_RefereeLeagueLeagueId",
+                name: "IX_Referee_Referee",
                 table: "Referee",
-                column: "RefereeLeagueLeagueId");
+                column: "Referee");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Referee_FirstName_LastName",
+                table: "Referee",
+                columns: new[] { "FirstName", "LastName" },
+                unique: true,
+                filter: "[FirstName] IS NOT NULL AND [LastName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Team_Team",

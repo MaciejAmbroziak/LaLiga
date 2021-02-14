@@ -180,17 +180,21 @@ namespace LaLiga.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("RefereeLeagueLeagueId")
+                    b.Property<int?>("Referee")
                         .HasColumnType("int");
 
                     b.HasKey("RefereeId");
 
-                    b.HasIndex("RefereeLeagueLeagueId");
+                    b.HasIndex("Referee");
+
+                    b.HasIndex("FirstName", "LastName")
+                        .IsUnique()
+                        .HasFilter("[FirstName] IS NOT NULL AND [LastName] IS NOT NULL");
 
                     b.ToTable("Referee");
                 });
@@ -236,8 +240,8 @@ namespace LaLiga.Migrations
             modelBuilder.Entity("LaLiga.Models.Referee", b =>
                 {
                     b.HasOne("LaLiga.Models.League", "RefereeLeague")
-                        .WithMany()
-                        .HasForeignKey("RefereeLeagueLeagueId");
+                        .WithMany("Referees")
+                        .HasForeignKey("Referee");
                 });
 
             modelBuilder.Entity("LaLiga.Models.Team", b =>

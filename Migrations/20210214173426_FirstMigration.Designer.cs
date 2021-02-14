@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaLiga.Migrations
 {
     [DbContext(typeof(MyAppContext))]
-    [Migration("20210214100311_IntitialMigration")]
-    partial class IntitialMigration
+    [Migration("20210214173426_FirstMigration")]
+    partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -182,17 +182,21 @@ namespace LaLiga.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("RefereeLeagueLeagueId")
+                    b.Property<int?>("Referee")
                         .HasColumnType("int");
 
                     b.HasKey("RefereeId");
 
-                    b.HasIndex("RefereeLeagueLeagueId");
+                    b.HasIndex("Referee");
+
+                    b.HasIndex("FirstName", "LastName")
+                        .IsUnique()
+                        .HasFilter("[FirstName] IS NOT NULL AND [LastName] IS NOT NULL");
 
                     b.ToTable("Referee");
                 });
@@ -238,8 +242,8 @@ namespace LaLiga.Migrations
             modelBuilder.Entity("LaLiga.Models.Referee", b =>
                 {
                     b.HasOne("LaLiga.Models.League", "RefereeLeague")
-                        .WithMany()
-                        .HasForeignKey("RefereeLeagueLeagueId");
+                        .WithMany("Referees")
+                        .HasForeignKey("Referee");
                 });
 
             modelBuilder.Entity("LaLiga.Models.Team", b =>

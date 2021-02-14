@@ -11,6 +11,7 @@ namespace LaLiga.ServiceForExternalApi
         public int League { get => _league; }
         private readonly int _seazon;
         public int Seazon { get => _seazon; }
+        public override ExternalLeagueInSeazon MyObject { get => base.MyObject; set { base.MyObject = value; GetMatches(); } }
         public ExternalApiLeagueInSeazon(int league, int seazon) : base()
         {
             _league = league;
