@@ -12,14 +12,14 @@ namespace LaLiga.Data
         public MyAppContext(DbContextOptions<MyAppContext> options) : base(options)
         {
         }
-        public DbSet<Team> Teams { get; set; }
+        public DbSet<TeamH2H> Teams { get; set; }
         public DbSet<Match> HomeMatches { get; set; }
         public DbSet<Match> AwayMatches { get; set; }
         public DbSet<League> Leagues { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Team>().ToTable("Team");
+            modelBuilder.Entity<TeamH2H>().ToTable("Team");
             modelBuilder.Entity<Match>().ToTable("Match").
                 HasIndex(a => new { a.MatchDateTime, a.RefereeId}).
                 IsUnique();
