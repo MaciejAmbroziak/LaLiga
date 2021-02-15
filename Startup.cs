@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LaLiga.Data;
+using LaLiga.ServiceForExternalApi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,12 +29,7 @@ namespace LaLiga
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddHttpClient("Data", options =>
-            {
-                options.BaseAddress = new Uri("https://v3.football.api-sports.io/");
-                options.DefaultRequestHeaders.Add("x-rapidapi-host", "v3.football.api-sports.io");
-                options.DefaultRequestHeaders.Add("x-rapidapi-key", Configuration.GetConnectionString("ApiFootballKey"));
-            });
+            services.AddHttpClient<ApiFootbalClient>();
             services.AddDbContext<MyAppContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MatchContext")));
         }
 

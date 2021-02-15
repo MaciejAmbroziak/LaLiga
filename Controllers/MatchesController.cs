@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LaLiga.Data;
 using LaLiga.Models;
+using LaLiga.ServiceForExternalApi;
 
 namespace LaLiga.Controllers
 {
@@ -29,17 +30,17 @@ namespace LaLiga.Controllers
         }
 
         // GET: api/Matches/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Match>> GetMatch(int id)
+        [HttpGet("{league}/{seazon}/{home}/{away}")]
+        public async Task<ActionResult<Match>> GetMatch(int league, int seazon, string home, string away)
         {
-            var match = await _context.HomeMatches.FindAsync(id);
-
-            if (match == null)
-            {
-                return NotFound();
-            }
-
-            return match;
+            ExternalApiLeagueInSeazon mySeazon =  new ExternalApiLeagueInSeazon(league, seazon);
+            DataToMatch data = new DataToMatch(mySeazon,_context);
+            await data.GenerateMatch(home, away);
+            Console.WriteLine(data.Match.RefereeId);
+            _context.Add(data.Match);
+            await _context.SaveChangesAsync();
+            int id = _context.AwayMatches.Where(a => a.HomeTeam.TeamName == home && a.AwayTeam.TeamName == away).FirstOrDefault().MatchId;
+            return await _context.HomeMatches.FindAsync(id);
         }
 
         // PUT: api/Matches/5

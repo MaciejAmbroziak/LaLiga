@@ -9,27 +9,25 @@ namespace LaLiga.ServiceForExternalApi
 {
     public class DataToMatch
     {
-        private readonly ExternalApiMatch _apiMatch;
         private readonly ExternalApiLeagueInSeazon _apiLeagueInSeazon;
         private readonly MyAppContext _context;
-        ObjectsToNumber convert = new ObjectsToNumber();
+        private ObjectsToNumber convert = new ObjectsToNumber();
         public Match Match { get; set; }
-        DataToMatch(ExternalApiLeagueInSeazon externalApiLeagueInSeazon, ExternalApiMatch externalApiMatch, MyAppContext myAppContext)
+        public DataToMatch(ExternalApiLeagueInSeazon externalApiLeagueInSeazon, MyAppContext myAppContext)
         {
             _apiLeagueInSeazon = externalApiLeagueInSeazon;
-            _apiMatch = externalApiMatch;
             _context = myAppContext;
         }
 
-        public Match GenerateMatch(string home, string away, DateTime when)
+        public async Task GenerateMatch(string home, string away)
         {
-            var record = _apiLeagueInSeazon.MyObject.response.Where(p => p.teams.home.name == home && p.teams.away.name == away && p.fixture.date == when).FirstOrDefault();
+            var record = _apiLeagueInSeazon.MyObject.response.Where(p => p.teams.home.name == home && p.teams.away.name == away).FirstOrDefault();
             var refereeId = _context.Referees.Where(p => p.NameAndCountry == record.fixture.referee).FirstOrDefault();
             int fixtureId = record.fixture.id;
             ExternalApiMatch matchDeteiles = new ExternalApiMatch(fixtureId);
             if (record != null)
             {
-                Match.MatchDateTime = when;
+                Match.MatchDateTime = record.fixture.date;
                 Match.HomeTeam.TeamName = home;
                 Match.AwayTeam.TeamName = away;
                 Match.RefereeId = refereeId.RefereeId;
@@ -71,7 +69,6 @@ namespace LaLiga.ServiceForExternalApi
                 Match.HomeTotalPasses = convert.Convert(awayValues.statistics.First(a => a.type == "Total passes").value);
                 Match.HomePassesAcurate = convert.Convert(awayValues.statistics.First(a => a.type == "Passes accurate").value);
             }
-            return Match;
         }
     }
 }
