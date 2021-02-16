@@ -54,6 +54,18 @@ namespace LaLiga.Models
         public int HomePassesAcurate { get; set; }
         public int AwayPassesAcurate { get; set; }
 
-
+        public bool Equals(Match otherMatch)
+        {
+            if (HomeTeam == otherMatch.HomeTeam &&
+                AwayTeam == otherMatch.AwayTeam &&
+                League == otherMatch.League &&
+                Seazon == otherMatch.Seazon)
+            {
+                return true;
+            }
+            return false;
+        }
     }
+
+
 }

@@ -13,8 +13,7 @@ namespace LaLiga.Data
         {
         }
         public DbSet<Team> Teams { get; set; }
-        public DbSet<Match> HomeMatches { get; set; }
-        public DbSet<Match> AwayMatches { get; set; }
+        public DbSet<Match> Matches { get; set; }
         public DbSet<League> Leagues { get; set; }
         public DbSet<Referee> Referees { get;set; }
 

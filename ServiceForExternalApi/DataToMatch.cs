@@ -21,7 +21,7 @@ namespace LaLiga.ServiceForExternalApi
             _context = myAppContext;
             _apiMatch = externalApiMatchController;
         }
-        [HttpGet("{seazon}/{league}/{home}/{away}")]
+
         public async Task<ActionResult<Match>> GenerateMatch(string home, string away, int league, int seazon)
         {
             var recordInLeague =  _apiLeagueInSeazon.Get(league,seazon).GetAwaiter().GetResult();
