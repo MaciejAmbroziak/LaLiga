@@ -29,7 +29,8 @@ namespace LaLiga
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddHttpClient<ApiFootbalClient>();
+            services.AddHttpClient<ApiFootballClient>();
+            services.AddMvc().AddControllersAsServices();
             services.AddDbContext<MyAppContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MatchContext")));
         }
 

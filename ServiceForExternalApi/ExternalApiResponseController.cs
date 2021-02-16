@@ -10,17 +10,22 @@ using System.Threading.Tasks;
 
 namespace LaLiga.ServiceForExternalApi
 {
-    public class ExternalApiResponse<ExternalApiObject> : Controller
+    public class ExternalApiResponseController<ExternalApiObject> : Controller
     {
-        private readonly ApiFootballClient _client;
+        public ApiFootballClient _client;
 
         private ExternalApiObject _object;
         public virtual ExternalApiObject MyObject { get => _object; set => _object = value; }
 
-        public ExternalApiResponse(ApiFootballClient apiFootballClient)
+        public ExternalApiResponseController(ApiFootballClient apiFootballClient)
         {
             _client = apiFootballClient;
         }
+
+        public ExternalApiResponseController()
+        {
+        }
+
         protected async Task<ExternalApiObject> GetObject(string httpRequest)
         {
             var response = await _client.Client.GetAsync(httpRequest);

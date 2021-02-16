@@ -5,19 +5,24 @@ using System.Threading.Tasks;
 
 namespace LaLiga.ServiceForExternalApi
 {
-    public class ObjectsToNumber
+    public class StringToNumber
     {
-        public int Convert(Object value)
+        public int Convert(String value)
         {
             try
             {
-                int i = (int)value;
+                int i = Int32.Parse(value);
+                return i;
             }
-            catch(FormatException e)
+            catch (FormatException e)
             {
-                if (value.ToString().Contains("%"))
+                if (value.Contains("%"))
                 {
                     return Int32.Parse(value.ToString().Replace("%", ""));
+                }
+                else if(value == "")
+                {
+                    return 0;
                 }
                 else
                 {
@@ -28,3 +33,4 @@ namespace LaLiga.ServiceForExternalApi
         }
     }
 }
+

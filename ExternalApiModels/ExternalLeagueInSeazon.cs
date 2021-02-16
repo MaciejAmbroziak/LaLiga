@@ -52,7 +52,7 @@ public class PeriodsLeagueInSeazon
 
 public class VenueLeagueInSeazon
 {
-    public int id { get; set; }
+    public int? id { get; set; }
     public string name { get; set; }
     public string city { get; set; }
 }
@@ -113,14 +113,14 @@ public class ScoreLeagueInSeazon
 
 public class HalftimeLeagueInSeazon
 {
-    public int home { get; set; }
-    public int away { get; set; }
+    public int? home { get; set; }
+    public int? away { get; set; }
 }
 
 public class FulltimeLeagueInSeazon
 {
-    public int home { get; set; }
-    public int away { get; set; }
+    public int? home { get; set; }
+    public int? away { get; set; }
 }
 
 public class ExtratimeLeagueInSeazon
