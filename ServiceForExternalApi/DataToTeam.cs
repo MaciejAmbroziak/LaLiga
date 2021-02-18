@@ -33,9 +33,8 @@ namespace LaLiga.ServiceForExternalApi
         public async Task<ActionResult<IEnumerable<Team>>> Get(int leagueId, int seazon)
         {
             var recordFromTeams = _apiTeam.Get(seazon, leagueId).GetAwaiter().GetResult();
-            var teamData = recordFromTeams.Value;
-            int numberOfTeams = teamData.response.Count();
-            foreach (var team in teamData.response)
+            var teamsData = recordFromTeams.Value;
+            foreach (var team in teamsData.response)
             {
                 Team nextTeam = new Team();
                 nextTeam.TeamName = team.team.name;
@@ -46,21 +45,21 @@ namespace LaLiga.ServiceForExternalApi
             }
             return myTeams;
         }
-        public bool ExistsInDatabase(string teamName)
+        public async Task<ActionResult<Team>> Get(int legueId, int seazon, string name)
         {
-            return _context.Teams.Where(a => a.TeamName== teamName).Any();
+            var recordFromTeams = _apiTeam.Get(legueId, seazon).GetAwaiter().GetResult();
+            var teamData = recordFromTeams.Value.response.Where(a => a.team.name == name).FirstOrDefault();
+            Team team = new Team();
+            team.TeamName = teamData.team.name;
+            team.Logo = teamData.team.logo;
+            if (_context.Teams.Find(team) == null)
+            {
+                _context.Add(team);
+                await _context.SaveChangesAsync();
+            }
+            return team;
         }
 
-        public int NumberOfTeams()
-        {
-            return _context.Teams.Count();
-        }
-        public void PrintTeams()
-        {
-            foreach(var team in _context.Teams)
-            {
-                Console.WriteLine(team.TeamName + " " + team.Logo);
-            }
-        }
+        
     }
 }

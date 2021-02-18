@@ -16,5 +16,14 @@ namespace LaLiga.Models
         public ICollection<Match> HomeMatches { get; set; }
         [InverseProperty("AwayTeam")]
         public ICollection<Match> AwayMatches { get; set; }
+
+        public bool Equals(Team otherTeam)
+        {
+            if (TeamName == otherTeam.TeamName && Logo == otherTeam.Logo)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
