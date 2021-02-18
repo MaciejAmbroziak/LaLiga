@@ -46,8 +46,8 @@ public class FixtureLeagueInSeazon
 
 public class PeriodsLeagueInSeazon
 {
-    public int first { get; set; }
-    public int second { get; set; }
+    public int? first { get; set; }
+    public int? second { get; set; }
 }
 
 public class VenueLeagueInSeazon
@@ -61,7 +61,7 @@ public class StatusLeagueInSeazon
 {
     public string _long { get; set; }
     public string _short { get; set; }
-    public int elapsed { get; set; }
+    public int? elapsed { get; set; }
 }
 
 public class LeagueLeagueInSeazon
@@ -99,8 +99,8 @@ public class AwayLeagueInSeazon
 
 public class GoalsLeagueInSeazon
 {
-    public int home { get; set; }
-    public int away { get; set; }
+    public int? home { get; set; }
+    public int? away { get; set; }
 }
 
 public class ScoreLeagueInSeazon

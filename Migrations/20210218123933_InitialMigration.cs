@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LaLiga.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -104,6 +104,10 @@ namespace LaLiga.Migrations
                     AwayBallPossession = table.Column<int>(nullable: false),
                     HomeGoalKeeperSaves = table.Column<int>(nullable: false),
                     AwayGoalKeeperSaves = table.Column<int>(nullable: false),
+                    HomeTotalPasses = table.Column<int>(nullable: false),
+                    AwayTotalPasses = table.Column<int>(nullable: false),
+                    HomePassesAcurate = table.Column<int>(nullable: false),
+                    AwayPassesAcurate = table.Column<int>(nullable: false),
                     Referees = table.Column<int>(nullable: true)
                 },
                 constraints: table =>

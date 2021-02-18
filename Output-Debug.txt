@@ -87,6 +87,26 @@
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Mvc.Cors.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Cors.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Mvc.DataAnnotations.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Mvc.ViewFeatures.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Linq.Expressions.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Components.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.JSInterop.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.DataProtection.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.DataProtection.Abstractions.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Cryptography.Internal.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Antiforgery.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.Extensions.WebEncoders.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Text.Encodings.Web.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Mvc.Razor.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.Extensions.Caching.Abstractions.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.Extensions.Caching.Memory.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Mvc.TagHelpers.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Razor.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Mvc.RazorPages.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Users\macie\source\Repos\LaLiga\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Net.Http.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Html.Abstractions.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Razor.Runtime.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Reflection.Emit.Lightweight.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.Extensions.Localization.Abstractions.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Threading.ThreadPool.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
@@ -95,19 +115,20 @@
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\System.Diagnostics.EventLog.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Collections.Specialized.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.ComponentModel.TypeConverter.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.HttpsPolicy.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Diagnostics.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\Microsoft.Win32.Registry.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Xml.XDocument.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Private.Xml.Linq.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Private.Xml.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Resources.ResourceManager.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Security.Cryptography.Algorithms.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Text.RegularExpressions.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Reflection.Emit.ILGeneration.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Reflection.Primitives.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.HttpsPolicy.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Diagnostics.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.Net.Http.Headers.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Text.Encodings.Web.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Resources.ResourceManager.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Drawing.Primitives.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Mvc.ViewFeatures.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Users\macie\source\Repos\LaLiga\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Net.Http.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Security.Principal.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Linq.Expressions.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.ComponentModel.Annotations.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Diagnostics.Debug.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Metadata.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
@@ -122,81 +143,62 @@ Microsoft.Hosting.Lifetime: Information: Content root path: C:\Users\macie\sourc
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.WebUtilities.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: Start processing HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=0
 System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Sending HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=0
-'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Text.RegularExpressions.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Net.Sockets.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Net.NameResolution.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Security.Cryptography.Primitives.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Collections.NonGeneric.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Security.Principal.Windows.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Security.Cryptography.Encoding.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Received HTTP response after 390.3168ms - OK
-System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: End processing HTTP request after 398.0629ms - OK
+System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Received HTTP response after 434.8901ms - OK
+System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: End processing HTTP request after 443.2934ms - OK
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Net.WebSockets.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: Start processing HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=0
 System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Sending HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=0
-System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Received HTTP response after 164.6101ms - OK
-System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: End processing HTTP request after 166.896ms - OK
-System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: Start processing HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=1221
-System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Sending HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=1221
-System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Received HTTP response after 114.3841ms - OK
-System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: End processing HTTP request after 116.9561ms - OK
-System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: Start processing HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=0
-System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Sending HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=0
-System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Received HTTP response after 109.5698ms - OK
-System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: End processing HTTP request after 111.7544ms - OK
-The thread 0x45ac has exited with code 0 (0x0).
-System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: Start processing HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=3221
-System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Sending HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=3221
-System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Received HTTP response after 112.0848ms - OK
-System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: End processing HTTP request after 114.5488ms - OK
-System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: Start processing HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=0
-System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Sending HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=0
-System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Received HTTP response after 126.7612ms - OK
-System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: End processing HTTP request after 129.2331ms - OK
-The thread 0x4780 has exited with code 0 (0x0).
-The thread 0x22c8 has exited with code 0 (0x0).
-The thread 0x4774 has exited with code 0 (0x0).
-System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: Start processing HTTP request GET https://v3.football.api-sports.io/fixtures?league=2359&season=0
-System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Sending HTTP request GET https://v3.football.api-sports.io/fixtures?league=2359&season=0
-System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Received HTTP response after 146.7846ms - OK
-System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: End processing HTTP request after 149.0475ms - OK
-Exception thrown: 'System.Text.Json.JsonException' in System.Private.CoreLib.dll
-'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Diagnostics.StackTrace.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Reflection.Metadata.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Received HTTP response after 125.9305ms - OK
+System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: End processing HTTP request after 128.4701ms - OK
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Users\macie\source\Repos\LaLiga\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Users\macie\source\Repos\LaLiga\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Data.Common.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Transactions.Local.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: Start processing HTTP request GET https://v3.football.api-sports.io/fixtures?league=39&season=2019
+System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Sending HTTP request GET https://v3.football.api-sports.io/fixtures?league=39&season=2019
+System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Received HTTP response after 170.145ms - OK
+System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: End processing HTTP request after 173.0069ms - OK
+System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: Start processing HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=157015
+System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Sending HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=157015
+System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Received HTTP response after 107.3672ms - OK
+System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: End processing HTTP request after 110.2945ms - OK
+Exception thrown: 'System.FormatException' in System.Private.CoreLib.dll
+Exception thrown: 'System.FormatException' in System.Private.CoreLib.dll
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Users\macie\source\Repos\LaLiga\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Collections.Immutable.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.IO.MemoryMappedFiles.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware: Error: An unhandled exception has occurred while executing the request.
-
-System.Text.Json.JsonException: The JSON value could not be converted to System.Collections.Generic.IEnumerable`1[ExternalMatch]. Path: $ | LineNumber: 0 | BytePositionInLine: 1.
-   at System.Text.Json.ThrowHelper.ThrowJsonException_DeserializeUnableToConvertValue(Type propertyType)
-   at System.Text.Json.JsonSerializer.HandleStartObject(JsonSerializerOptions options, ReadStack& state)
-   at System.Text.Json.JsonSerializer.ReadCore(JsonSerializerOptions options, Utf8JsonReader& reader, ReadStack& readStack)
-   at System.Text.Json.JsonSerializer.ReadCore(JsonReaderState& readerState, Boolean isFinalBlock, ReadOnlySpan`1 buffer, JsonSerializerOptions options, ReadStack& readStack)
-   at System.Text.Json.JsonSerializer.ReadAsync[TValue](Stream utf8Json, Type returnType, JsonSerializerOptions options, CancellationToken cancellationToken)
-   at LaLiga.ServiceForExternalApi.ExternalApiLeagueInSeazonController.Get(Int32 league, Int32 seazon) in C:\Users\macie\source\Repos\LaLiga\ServiceForExternalApi\ExternalApiLeagueInSeazonController.cs:line 26
-   at lambda_method(Closure , Object )
-   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
-   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
-   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
-   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
-'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\Microsoft.Win32.Registry.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.12\Microsoft.AspNetCore.Http.Extensions.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-The thread 0x1148 has exited with code 0 (0x0).
-The thread 0x36c8 has exited with code 0 (0x0).
-The thread 0x38e4 has exited with code 0 (0x0).
-System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: Start processing HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=2359
-System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Sending HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=2359
-System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Received HTTP response after 126.4766ms - OK
-System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: End processing HTTP request after 148.8459ms - OK
-The thread 0x2dcc has exited with code 0 (0x0).
-The thread 0x2894 has exited with code 0 (0x0).
-The thread 0x1b08 has exited with code 0 (0x0).
-The thread 0x1b00 has exited with code 0 (0x0).
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Users\macie\source\Repos\LaLiga\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Users\macie\source\Repos\LaLiga\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Xml.ReaderWriter.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Net.WebClient.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Text.Encoding.CodePages.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'iisexpress.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.12\System.Diagnostics.Process.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+The thread 0x4904 has exited with code 0 (0x0).
+The thread 0x4254 has exited with code 0 (0x0).
+System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: Start processing HTTP request GET https://v3.football.api-sports.io/fixtures?league=39&season=2020
+System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Sending HTTP request GET https://v3.football.api-sports.io/fixtures?league=39&season=2020
+System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Received HTTP response after 167.402ms - OK
+System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: End processing HTTP request after 170.0766ms - OK
+System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: Start processing HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=592162
+System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Sending HTTP request GET https://v3.football.api-sports.io/fixtures/statistics?fixture=592162
+System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Received HTTP response after 114.7024ms - OK
+System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: End processing HTTP request after 117.2465ms - OK
+Exception thrown: 'System.FormatException' in System.Private.CoreLib.dll
+Exception thrown: 'System.FormatException' in System.Private.CoreLib.dll
+System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: Start processing HTTP request GET https://v3.football.api-sports.io/teams?league=39&season=2017
+System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Sending HTTP request GET https://v3.football.api-sports.io/teams?league=39&season=2017
+System.Net.Http.HttpClient.ApiFootballClient.ClientHandler: Information: Received HTTP response after 100.9423ms - OK
+System.Net.Http.HttpClient.ApiFootballClient.LogicalHandler: Information: End processing HTTP request after 103.9456ms - OK
+The thread 0x46e0 has exited with code 0 (0x0).
+The thread 0x3478 has exited with code 0 (0x0).
+The thread 0x21d0 has exited with code 0 (0x0).
+The thread 0x3c8 has exited with code 0 (0x0).
+The thread 0x1a6c has exited with code 0 (0x0).
+The thread 0xaf0 has exited with code 0 (0x0).
+The thread 0x2c80 has exited with code 0 (0x0).
+The thread 0x3d20 has exited with code 0 (0x0).

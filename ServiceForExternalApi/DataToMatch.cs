@@ -27,7 +27,7 @@ namespace LaLiga.ServiceForExternalApi
             var recordInLeague =  _apiLeagueInSeazon.Get(league,seazon).GetAwaiter().GetResult();
             var leagueData = recordInLeague.Value.response.Where(p => p.teams.home.name == home && p.teams.away.name == away).FirstOrDefault();
             int fixtureId = leagueData.fixture.id;
-            if (leagueData != null)
+            if (leagueData != null && fixtureId !=0)
             {
                 Match.MatchDateTime = leagueData.fixture.date;
  //               Match.HomeTeam.TeamName = home;

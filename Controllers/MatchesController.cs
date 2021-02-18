@@ -29,7 +29,7 @@ namespace LaLiga.Controllers
 
         // GET: api/Matches/5
         [HttpGet("{seazon}/{league}/{home}/{away}")]
-        public async Task<ActionResult<Match>> GetMatch(int league, int seazon, string home, string away)
+        public async Task<ActionResult<Match>> Get(int league, int seazon, string home, string away)
         {
             DataToMatch dataFromService = new DataToMatch(_apiLeagueInSeazon, _apiMatch, _context);
             //var match = _context.Matches.Where(a => a.HomeTeam.TeamName == home && a.AwayTeam.TeamName == away && a.Seazon == 0).FirstOrDefault();
@@ -37,6 +37,10 @@ namespace LaLiga.Controllers
             //{
                var match = dataFromService.GenerateMatch(home, away, league, seazon).Result.Value;
             //}
+            if (match == null)
+            {
+                return default(Match);
+            }
             return match;
         }
     }
