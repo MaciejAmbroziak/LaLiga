@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LaLiga.ServiceForExternalApi
 {
-    [Route("api/in/")]
+    [Route("api/in/aa")]
     [ApiController]
     public class DataToTeam : Controller
     {
@@ -45,14 +45,16 @@ namespace LaLiga.ServiceForExternalApi
             }
             return myTeams;
         }
-        public async Task<ActionResult<Team>> Get(int legueId, int seazon, string name)
+
+        [HttpGet("{seazon}/{leagueId}/{name}")]
+        public async Task<ActionResult<Team>> Get(int leagueId, int seazon, string name)
         {
-            var recordFromTeams = _apiTeam.Get(legueId, seazon).GetAwaiter().GetResult();
+            var recordFromTeams = _apiTeam.Get(seazon, leagueId).GetAwaiter().GetResult();
             var teamData = recordFromTeams.Value.response.Where(a => a.team.name == name).FirstOrDefault();
             Team team = new Team();
             team.TeamName = teamData.team.name;
             team.Logo = teamData.team.logo;
-            if (_context.Teams.Find(team) == null)
+            if (!_context.Teams.Where(a=>a.TeamName == name && team.Logo == teamData.team.logo).Any())
             {
                 _context.Add(team);
                 await _context.SaveChangesAsync();

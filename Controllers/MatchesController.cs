@@ -17,12 +17,13 @@ namespace LaLiga.Controllers
         private readonly MyAppContext _context;
         private readonly ExternalApiLeagueInSeazonController _apiLeagueInSeazon;
         private readonly ExternalApiMatchController _apiMatch;
-
-        public MatchesController(MyAppContext context, ExternalApiLeagueInSeazonController externalApiLeagueInSeazonController, ExternalApiMatchController externalApiMatchController)
+        private readonly DataToTeam _apiTeam;
+        public MatchesController(MyAppContext context, ExternalApiLeagueInSeazonController externalApiLeagueInSeazonController, ExternalApiMatchController externalApiMatchController, DataToTeam dataToTeam)
         {
             _context = context;
             _apiLeagueInSeazon = externalApiLeagueInSeazonController;
             _apiMatch = externalApiMatchController;
+            _apiTeam = dataToTeam;
 
         }
 
@@ -31,7 +32,7 @@ namespace LaLiga.Controllers
         [HttpGet("{seazon}/{league}/{home}/{away}")]
         public async Task<ActionResult<Match>> Get(int league, int seazon, string home, string away)
         {
-            DataToMatch dataFromService = new DataToMatch(_apiLeagueInSeazon, _apiMatch, _context);
+            DataToMatch dataFromService = new DataToMatch(_apiLeagueInSeazon, _apiMatch, _context, _apiTeam);
             //var match = _context.Matches.Where(a => a.HomeTeam.TeamName == home && a.AwayTeam.TeamName == away && a.Seazon == 0).FirstOrDefault();
             //if (match != null)
             //{

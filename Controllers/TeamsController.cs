@@ -30,15 +30,14 @@ namespace LaLiga.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        //// GET api/<TeamsController>/5
-        //[HttpGet("{league}/{Seazon}")]
-        //public Task<ActionResult<IEnumerable<Team>>> Get(int league, int seazon)
-        //{
-        //    DataToTeam datafromService = new DataToTeam(_context, _apiTeam);
-        //    datafromService.PrintTeams();
-        //    var teams = datafromService.Get(league, seazon).Result.Value;
-        //    return (Task<ActionResult<IEnumerable<Team>>>)teams;
-        //}
+        // GET api/<TeamsController>/5
+        [HttpGet("{league}/{Seazon}")]
+        public Task<ActionResult<IEnumerable<Team>>> Get(int league, int seazon)
+        {
+            DataToTeam datafromService = new DataToTeam(_context, _apiTeam);
+            var teams = datafromService.Get(league, seazon).Result.Value;
+            return (Task<ActionResult<IEnumerable<Team>>>)teams;
+        }
 
         // POST api/<TeamsController>
         [HttpPost]

@@ -12,27 +12,38 @@ namespace LaLiga.ServiceForExternalApi
     {
         private readonly ExternalApiLeagueInSeazonController _apiLeagueInSeazon;
         private readonly ExternalApiMatchController _apiMatch;
+        private readonly DataToTeam _apiTeam;
         private readonly MyAppContext _context;
         private StringToNumber convert = new StringToNumber();
         public Match Match = new Match();
-        public DataToMatch(ExternalApiLeagueInSeazonController externalApiLeagueInSeazon, ExternalApiMatchController externalApiMatchController, MyAppContext myAppContext)
+        Team homeTeam = new Team();
+        Team awayTeam = new Team();
+        public DataToMatch(ExternalApiLeagueInSeazonController externalApiLeagueInSeazon, 
+            ExternalApiMatchController externalApiMatchController, 
+            MyAppContext myAppContext,
+            DataToTeam apiTeam)
         {
             _apiLeagueInSeazon = externalApiLeagueInSeazon;
             _context = myAppContext;
             _apiMatch = externalApiMatchController;
+            _apiTeam = apiTeam;
         }
 
         public async Task<ActionResult<Match>> GenerateMatch(string home, string away, int league, int seazon)
         {
-            var recordInLeague =  _apiLeagueInSeazon.Get(league,seazon).GetAwaiter().GetResult();
+            var recordInLeague = _apiLeagueInSeazon.Get(league, seazon).GetAwaiter().GetResult();
             var leagueData = recordInLeague.Value.response.Where(p => p.teams.home.name == home && p.teams.away.name == away).FirstOrDefault();
             int fixtureId = leagueData.fixture.id;
-            if (leagueData != null && fixtureId !=0)
+            if (leagueData != null && fixtureId != 0)
             {
                 Match.MatchDateTime = leagueData.fixture.date;
- //               Match.HomeTeam.TeamName = home;
-   //             Match.AwayTeam.TeamName = away;
-                Match.RefereeId = 1;
+                homeTeam.TeamName = home;
+                homeTeam.Logo = _apiTeam.Get(league, seazon, home).GetAwaiter().GetResult().Value.Logo;
+                awayTeam.TeamName = away;
+                awayTeam.Logo = _apiTeam.Get(league, seazon, away).GetAwaiter().GetResult().Value.Logo;
+                Match.HomeTeam = homeTeam;
+                Match.AwayTeam = awayTeam;
+                Match.RefereeId = 2;
                 Match.HalfTimeHomeGoals = leagueData.score.halftime.home ?? 0;
                 Match.HalfTimeAwayGoals = leagueData.score.halftime.away ?? 0;
                 Match.FullTimeHomeGoals = leagueData.score.fulltime.home ?? 0;
