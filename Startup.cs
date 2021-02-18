@@ -29,7 +29,13 @@ namespace LaLiga
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddHttpClient<ApiFootballClient>();
+            services.AddHttpClient("ApiFootballClient", options =>
+            {
+                options.BaseAddress = new Uri("https://v3.football.api-sports.io/");
+                options.DefaultRequestHeaders.Add("x-rapidapi-host", "v3.football.api-sports.io");
+                options.DefaultRequestHeaders.Add("x-rapidapi-key", Configuration.GetConnectionString("ApiFootballKey"));
+
+            });
             services.AddMvc().AddControllersAsServices();
             services.AddDbContext<MyAppContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MatchContext")));
         }
