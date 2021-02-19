@@ -14,11 +14,11 @@ namespace LaLiga.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MatchId { get; set; }
         public int Seazon { get; set; }
-        public string League { get; set; }
+        public League League { get; set; }
         public DateTime MatchDateTime { get; set; }
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
-        public int RefereeId { get; set; }
+        public Referee Referee { get; set; }
         public int HalfTimeHomeGoals { get; set; }
         public int HalfTimeAwayGoals { get; set; }
         public int FullTimeHomeGoals { get; set; }

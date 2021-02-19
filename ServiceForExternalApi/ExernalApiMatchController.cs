@@ -17,8 +17,6 @@ namespace LaLiga.ServiceForExternalApi
         {
             factory = myFactory;
         }
-
-        [HttpGet("{fixture}")]
         public async Task<ActionResult<ExternalMatch>> Get(int fixture)
         {
             string httpRequest = $"https://v3.football.api-sports.io/fixtures/statistics?fixture={fixture}";

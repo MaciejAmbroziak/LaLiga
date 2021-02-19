@@ -12,8 +12,8 @@ namespace LaLiga.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int LeagueId { get; set; }
-        public int LeagueName { get; set; }
-        public DateTime LeagueSeazon { get; set; }
+        public string LeagueName { get; set; }
+        public int LeagueSeazon { get; set; }
 
         [ForeignKey("Team")]        
         public ICollection<Team> Teams { get; set; }

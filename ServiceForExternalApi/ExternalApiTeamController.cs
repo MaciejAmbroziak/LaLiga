@@ -20,8 +20,6 @@ namespace LaLiga.ServiceForExternalApi
         {
             factory = myFactory;
         }
-
-        [HttpGet("{seazon}/{league}")]
         public async Task<ActionResult<ExternalTeam>> Get(int seazon, int league)
         {
             string httpRequest = $"https://v3.football.api-sports.io/teams?league={league}&season={seazon}";

@@ -21,16 +21,13 @@ namespace LaLiga.Data
         {
             modelBuilder.Entity<Team>().ToTable("Team")
                 .HasKey(a=> new { a.TeamName, a.Logo});
-            modelBuilder.Entity<Match>().ToTable("Match").
-                HasIndex(a => new { a.MatchDateTime, a.RefereeId }).
-                IsUnique();
+            modelBuilder.Entity<Match>().ToTable("Match");
             modelBuilder.Entity<Referee>().ToTable("Referee").
                 HasIndex(a => new {a.NameAndCountry})
                 .IsUnique();
             modelBuilder.Entity<League>().ToTable("League").
-                HasIndex(a => new { a.LeagueName, a.LeagueSeazon}).
+                HasIndex(a => new {a.LeagueSeazon}).
                 IsUnique();
-
         }
 
     }

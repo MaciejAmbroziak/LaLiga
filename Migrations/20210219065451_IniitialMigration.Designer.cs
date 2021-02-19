@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaLiga.Migrations
 {
     [DbContext(typeof(MyAppContext))]
-    [Migration("20210218123933_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20210219065451_IniitialMigration")]
+    partial class IniitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,15 +28,15 @@ namespace LaLiga.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("LeagueName")
-                        .HasColumnType("int");
+                    b.Property<string>("LeagueName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("LeagueSeazon")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("LeagueSeazon")
+                        .HasColumnType("int");
 
                     b.HasKey("LeagueId");
 
-                    b.HasIndex("LeagueName", "LeagueSeazon")
+                    b.HasIndex("LeagueSeazon")
                         .IsUnique();
 
                     b.ToTable("League");
@@ -85,8 +85,11 @@ namespace LaLiga.Migrations
                     b.Property<int>("AwayShotsOutsideBox")
                         .HasColumnType("int");
 
-                    b.Property<int?>("AwayTeamTeamId")
-                        .HasColumnType("int");
+                    b.Property<string>("AwayTeamLogo")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AwayTeamTeamName")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AwayTotalPasses")
                         .HasColumnType("int");
@@ -145,8 +148,11 @@ namespace LaLiga.Migrations
                     b.Property<int>("HomeShotsOutsideBox")
                         .HasColumnType("int");
 
-                    b.Property<int?>("HomeTeamTeamId")
-                        .HasColumnType("int");
+                    b.Property<string>("HomeTeamLogo")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("HomeTeamTeamName")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("HomeTotalPasses")
                         .HasColumnType("int");
@@ -157,8 +163,8 @@ namespace LaLiga.Migrations
                     b.Property<int>("HomeYellowCards")
                         .HasColumnType("int");
 
-                    b.Property<string>("League")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("LeagueId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("MatchDateTime")
                         .HasColumnType("datetime2");
@@ -174,11 +180,13 @@ namespace LaLiga.Migrations
 
                     b.HasKey("MatchId");
 
-                    b.HasIndex("AwayTeamTeamId");
-
-                    b.HasIndex("HomeTeamTeamId");
+                    b.HasIndex("LeagueId");
 
                     b.HasIndex("Referees");
+
+                    b.HasIndex("AwayTeamTeamName", "AwayTeamLogo");
+
+                    b.HasIndex("HomeTeamTeamName", "HomeTeamLogo");
 
                     b.HasIndex("MatchDateTime", "RefereeId")
                         .IsUnique();
@@ -212,21 +220,21 @@ namespace LaLiga.Migrations
 
             modelBuilder.Entity("LaLiga.Models.Team", b =>
                 {
+                    b.Property<string>("TeamName")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Logo")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("Team")
+                        .HasColumnType("int");
+
                     b.Property<int>("TeamId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Logo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Team")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TeamName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("TeamId");
+                    b.HasKey("TeamName", "Logo");
 
                     b.HasIndex("Team");
 
@@ -235,17 +243,21 @@ namespace LaLiga.Migrations
 
             modelBuilder.Entity("LaLiga.Models.Match", b =>
                 {
-                    b.HasOne("LaLiga.Models.Team", "AwayTeam")
-                        .WithMany("AwayMatches")
-                        .HasForeignKey("AwayTeamTeamId");
-
-                    b.HasOne("LaLiga.Models.Team", "HomeTeam")
-                        .WithMany("HomeMatches")
-                        .HasForeignKey("HomeTeamTeamId");
+                    b.HasOne("LaLiga.Models.League", "League")
+                        .WithMany()
+                        .HasForeignKey("LeagueId");
 
                     b.HasOne("LaLiga.Models.Referee", null)
                         .WithMany("Matches")
                         .HasForeignKey("Referees");
+
+                    b.HasOne("LaLiga.Models.Team", "AwayTeam")
+                        .WithMany("AwayMatches")
+                        .HasForeignKey("AwayTeamTeamName", "AwayTeamLogo");
+
+                    b.HasOne("LaLiga.Models.Team", "HomeTeam")
+                        .WithMany("HomeMatches")
+                        .HasForeignKey("HomeTeamTeamName", "HomeTeamLogo");
                 });
 
             modelBuilder.Entity("LaLiga.Models.Referee", b =>
@@ -257,7 +269,7 @@ namespace LaLiga.Migrations
 
             modelBuilder.Entity("LaLiga.Models.Team", b =>
                 {
-                    b.HasOne("LaLiga.Models.League", null)
+                    b.HasOne("LaLiga.Models.League", "TeamLeagues")
                         .WithMany("Teams")
                         .HasForeignKey("Team");
                 });

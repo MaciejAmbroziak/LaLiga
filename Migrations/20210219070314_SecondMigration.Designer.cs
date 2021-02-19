@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaLiga.Migrations
 {
     [DbContext(typeof(MyAppContext))]
-    [Migration("20210218140838_SecondMigration")]
+    [Migration("20210219070314_SecondMigration")]
     partial class SecondMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,15 +28,15 @@ namespace LaLiga.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("LeagueName")
-                        .HasColumnType("int");
+                    b.Property<string>("LeagueName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("LeagueSeazon")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("LeagueSeazon")
+                        .HasColumnType("int");
 
                     b.HasKey("LeagueId");
 
-                    b.HasIndex("LeagueName", "LeagueSeazon")
+                    b.HasIndex("LeagueSeazon")
                         .IsUnique();
 
                     b.ToTable("League");
@@ -163,8 +163,8 @@ namespace LaLiga.Migrations
                     b.Property<int>("HomeYellowCards")
                         .HasColumnType("int");
 
-                    b.Property<string>("League")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("LeagueId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("MatchDateTime")
                         .HasColumnType("datetime2");
@@ -179,6 +179,8 @@ namespace LaLiga.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("MatchId");
+
+                    b.HasIndex("LeagueId");
 
                     b.HasIndex("Referees");
 
@@ -241,6 +243,10 @@ namespace LaLiga.Migrations
 
             modelBuilder.Entity("LaLiga.Models.Match", b =>
                 {
+                    b.HasOne("LaLiga.Models.League", "League")
+                        .WithMany()
+                        .HasForeignKey("LeagueId");
+
                     b.HasOne("LaLiga.Models.Referee", null)
                         .WithMany("Matches")
                         .HasForeignKey("Referees");
@@ -263,7 +269,7 @@ namespace LaLiga.Migrations
 
             modelBuilder.Entity("LaLiga.Models.Team", b =>
                 {
-                    b.HasOne("LaLiga.Models.League", null)
+                    b.HasOne("LaLiga.Models.League", "TeamLeagues")
                         .WithMany("Teams")
                         .HasForeignKey("Team");
                 });

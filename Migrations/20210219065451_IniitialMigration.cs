@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LaLiga.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class IniitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +13,8 @@ namespace LaLiga.Migrations
                 {
                     LeagueId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    LeagueName = table.Column<int>(nullable: false),
-                    LeagueSeazon = table.Column<DateTime>(nullable: false)
+                    LeagueName = table.Column<string>(nullable: true),
+                    LeagueSeazon = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,15 +45,15 @@ namespace LaLiga.Migrations
                 name: "Team",
                 columns: table => new
                 {
+                    TeamName = table.Column<string>(nullable: false),
+                    Logo = table.Column<string>(nullable: false),
                     TeamId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TeamName = table.Column<string>(nullable: true),
-                    Logo = table.Column<string>(nullable: true),
                     Team = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Team", x => x.TeamId);
+                    table.PrimaryKey("PK_Team", x => new { x.TeamName, x.Logo });
                     table.ForeignKey(
                         name: "FK_Team_League_Team",
                         column: x => x.Team,
@@ -69,10 +69,12 @@ namespace LaLiga.Migrations
                     MatchId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Seazon = table.Column<int>(nullable: false),
-                    League = table.Column<string>(nullable: true),
+                    LeagueId = table.Column<int>(nullable: true),
                     MatchDateTime = table.Column<DateTime>(nullable: false),
-                    HomeTeamTeamId = table.Column<int>(nullable: true),
-                    AwayTeamTeamId = table.Column<int>(nullable: true),
+                    HomeTeamTeamName = table.Column<string>(nullable: true),
+                    HomeTeamLogo = table.Column<string>(nullable: true),
+                    AwayTeamTeamName = table.Column<string>(nullable: true),
+                    AwayTeamLogo = table.Column<string>(nullable: true),
                     RefereeId = table.Column<int>(nullable: false),
                     HalfTimeHomeGoals = table.Column<int>(nullable: false),
                     HalfTimeAwayGoals = table.Column<int>(nullable: false),
@@ -114,16 +116,10 @@ namespace LaLiga.Migrations
                 {
                     table.PrimaryKey("PK_Match", x => x.MatchId);
                     table.ForeignKey(
-                        name: "FK_Match_Team_AwayTeamTeamId",
-                        column: x => x.AwayTeamTeamId,
-                        principalTable: "Team",
-                        principalColumn: "TeamId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Match_Team_HomeTeamTeamId",
-                        column: x => x.HomeTeamTeamId,
-                        principalTable: "Team",
-                        principalColumn: "TeamId",
+                        name: "FK_Match_League_LeagueId",
+                        column: x => x.LeagueId,
+                        principalTable: "League",
+                        principalColumn: "LeagueId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Match_Referee_Referees",
@@ -131,28 +127,45 @@ namespace LaLiga.Migrations
                         principalTable: "Referee",
                         principalColumn: "RefereeId",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Match_Team_AwayTeamTeamName_AwayTeamLogo",
+                        columns: x => new { x.AwayTeamTeamName, x.AwayTeamLogo },
+                        principalTable: "Team",
+                        principalColumns: new[] { "TeamName", "Logo" },
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Match_Team_HomeTeamTeamName_HomeTeamLogo",
+                        columns: x => new { x.HomeTeamTeamName, x.HomeTeamLogo },
+                        principalTable: "Team",
+                        principalColumns: new[] { "TeamName", "Logo" },
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_League_LeagueName_LeagueSeazon",
+                name: "IX_League_LeagueSeazon",
                 table: "League",
-                columns: new[] { "LeagueName", "LeagueSeazon" },
+                column: "LeagueSeazon",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Match_AwayTeamTeamId",
+                name: "IX_Match_LeagueId",
                 table: "Match",
-                column: "AwayTeamTeamId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Match_HomeTeamTeamId",
-                table: "Match",
-                column: "HomeTeamTeamId");
+                column: "LeagueId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Match_Referees",
                 table: "Match",
                 column: "Referees");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Match_AwayTeamTeamName_AwayTeamLogo",
+                table: "Match",
+                columns: new[] { "AwayTeamTeamName", "AwayTeamLogo" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Match_HomeTeamTeamName_HomeTeamLogo",
+                table: "Match",
+                columns: new[] { "HomeTeamTeamName", "HomeTeamLogo" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Match_MatchDateTime_RefereeId",
@@ -184,10 +197,10 @@ namespace LaLiga.Migrations
                 name: "Match");
 
             migrationBuilder.DropTable(
-                name: "Team");
+                name: "Referee");
 
             migrationBuilder.DropTable(
-                name: "Referee");
+                name: "Team");
 
             migrationBuilder.DropTable(
                 name: "League");

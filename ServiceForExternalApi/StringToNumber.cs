@@ -29,7 +29,6 @@ namespace LaLiga.ServiceForExternalApi
                     throw e;
                 }
             }
-            return -1;
         }
     }
 }

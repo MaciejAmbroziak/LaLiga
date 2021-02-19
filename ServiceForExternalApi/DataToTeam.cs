@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 
 namespace LaLiga.ServiceForExternalApi
 {
-    [Route("api/in/aa")]
-    [ApiController]
     public class DataToTeam : Controller
     {
         private readonly ExternalApiTeamController _apiTeam;
@@ -29,7 +27,6 @@ namespace LaLiga.ServiceForExternalApi
             _context = context;
             _apiTeam = apiTeam;
         }
-        [HttpGet("{seazon}/{leagueId}")]
         public async Task<ActionResult<IEnumerable<Team>>> Get(int leagueId, int seazon)
         {
             var recordFromTeams = _apiTeam.Get(seazon, leagueId).GetAwaiter().GetResult();
@@ -46,7 +43,6 @@ namespace LaLiga.ServiceForExternalApi
             return myTeams;
         }
 
-        [HttpGet("{seazon}/{leagueId}/{name}")]
         public async Task<ActionResult<Team>> Get(int leagueId, int seazon, string name)
         {
             var recordFromTeams = _apiTeam.Get(seazon, leagueId).GetAwaiter().GetResult();

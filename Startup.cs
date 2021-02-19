@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using LaLiga.Data;
 using LaLiga.ServiceForExternalApi;
@@ -29,6 +30,10 @@ namespace LaLiga
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddControllers().AddJsonOptions(options => 
+            {
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+            });
             services.AddHttpClient("ApiFootballClient", options =>
             {
                 options.BaseAddress = new Uri("https://v3.football.api-sports.io/");

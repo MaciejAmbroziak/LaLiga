@@ -30,13 +30,32 @@ namespace LaLiga.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/<TeamsController>/5
-        [HttpGet("{league}/{Seazon}")]
-        public Task<ActionResult<IEnumerable<Team>>> Get(int league, int seazon)
+        //// GET api/<TeamsController>/5
+        //[HttpGet("{league}/{Seazon}")]
+        //public async Task<ActionResult<IEnumerable<Team>>> Get(int league, int seazon)
+        //{
+        //    DataToTeam datafromService = new DataToTeam(_context, _apiTeam);
+        //    var teams = datafromService.Get(league, seazon).Result.Value;
+        //    return teams;
+        //}
+
+        [HttpGet("{seazon}/{league}/{team}")]
+
+        public async Task<ActionResult<Team>> Get(int league, int seazon, Team newTeam)
         {
-            DataToTeam datafromService = new DataToTeam(_context, _apiTeam);
-            var teams = datafromService.Get(league, seazon).Result.Value;
-            return (Task<ActionResult<IEnumerable<Team>>>)teams;
+            Team team;
+            if(_context.Teams.Where(a=> a.TeamName == newTeam.TeamName && a.Logo == newTeam.Logo).Any())
+            {
+                team = _context.Teams.Where(a => a.TeamName == newTeam.TeamName && a.Logo == newTeam.Logo).FirstOrDefault();
+            }
+            else
+            {
+                DataToTeam datafromService = new DataToTeam(_context, _apiTeam);
+                team = datafromService.Get(league, seazon).Result.Value.Where(a => a.TeamName == newTeam.TeamName).FirstOrDefault();
+                _context.Teams.Add(team);
+                await _context.SaveChangesAsync();
+            }       
+            return team;
         }
 
         // POST api/<TeamsController>

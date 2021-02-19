@@ -12,8 +12,12 @@ namespace LaLiga.Models
         public int TeamId { get; set; }
         public string TeamName { get; set; }
         public string Logo { get; set; }
+
+        public League TeamLeagues { get; set; }
+
         [InverseProperty("HomeTeam")]
         public ICollection<Match> HomeMatches { get; set; }
+
         [InverseProperty("AwayTeam")]
         public ICollection<Match> AwayMatches { get; set; }
 
