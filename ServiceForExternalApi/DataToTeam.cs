@@ -34,7 +34,7 @@ namespace LaLiga.ServiceForExternalApi
             foreach (var team in teamsData.response)
             {
                 Team nextTeam = new Team();
-                nextTeam.TeamName = team.team.name;
+                nextTeam.Name = team.team.name;
                 nextTeam.Logo = team.team.logo;
                 myTeams.Add(nextTeam);
                 _context.Teams.Add(nextTeam);
@@ -48,9 +48,9 @@ namespace LaLiga.ServiceForExternalApi
             var recordFromTeams = _apiTeam.Get(seazon, leagueId).GetAwaiter().GetResult();
             var teamData = recordFromTeams.Value.response.Where(a => a.team.name == name).FirstOrDefault();
             Team team = new Team();
-            team.TeamName = teamData.team.name;
+            team.Name = teamData.team.name;
             team.Logo = teamData.team.logo;
-            if (!_context.Teams.Where(a=>a.TeamName == name && team.Logo == teamData.team.logo).Any())
+            if (!_context.Teams.Where(a=>a.Name == name && team.Logo == teamData.team.logo).Any())
             {
                 _context.Add(team);
                 await _context.SaveChangesAsync();

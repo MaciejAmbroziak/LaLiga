@@ -19,15 +19,7 @@ namespace LaLiga.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Team>().ToTable("Team")
-                .HasKey(a=> new { a.TeamName, a.Logo});
-            modelBuilder.Entity<Match>().ToTable("Match");
-            modelBuilder.Entity<Referee>().ToTable("Referee").
-                HasIndex(a => new {a.NameAndCountry})
-                .IsUnique();
-            modelBuilder.Entity<League>().ToTable("League").
-                HasIndex(a => new {a.LeagueSeazon}).
-                IsUnique();
+            modelBuilder.Entity<TeamMatch>().HasKey(a => new { a.TeamId, a.MatchId });
         }
 
     }

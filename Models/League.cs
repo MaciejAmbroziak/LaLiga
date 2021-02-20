@@ -11,13 +11,10 @@ namespace LaLiga.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int LeagueId { get; set; }
-        public string LeagueName { get; set; }
-        public int LeagueSeazon { get; set; }
-
-        [ForeignKey("Team")]        
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Seazon { get; set; }       
         public ICollection<Team> Teams { get; set; }
-        [ForeignKey("Referee")]
         public ICollection<Referee> Referees { get; set; }
     }
 }

@@ -10,41 +10,38 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaLiga.Migrations
 {
     [DbContext(typeof(MyAppContext))]
-    [Migration("20210219070314_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20210220205345_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("ProductVersion", "5.0.3")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("LaLiga.Models.League", b =>
                 {
-                    b.Property<int>("LeagueId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("LeagueName")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("LeagueSeazon")
+                    b.Property<int>("Seazon")
                         .HasColumnType("int");
 
-                    b.HasKey("LeagueId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("LeagueSeazon")
-                        .IsUnique();
-
-                    b.ToTable("League");
+                    b.ToTable("Leagues");
                 });
 
             modelBuilder.Entity("LaLiga.Models.Match", b =>
                 {
-                    b.Property<int>("MatchId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -85,11 +82,8 @@ namespace LaLiga.Migrations
                     b.Property<int>("AwayShotsOutsideBox")
                         .HasColumnType("int");
 
-                    b.Property<string>("AwayTeamLogo")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("AwayTeamTeamName")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("AwayTeamId")
+                        .HasColumnType("int");
 
                     b.Property<int>("AwayTotalPasses")
                         .HasColumnType("int");
@@ -148,11 +142,8 @@ namespace LaLiga.Migrations
                     b.Property<int>("HomeShotsOutsideBox")
                         .HasColumnType("int");
 
-                    b.Property<string>("HomeTeamLogo")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("HomeTeamTeamName")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("HomeTeamId")
+                        .HasColumnType("int");
 
                     b.Property<int>("HomeTotalPasses")
                         .HasColumnType("int");
@@ -169,109 +160,165 @@ namespace LaLiga.Migrations
                     b.Property<DateTime>("MatchDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("RefereeId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Referees")
+                    b.Property<int?>("RefereeId")
                         .HasColumnType("int");
 
                     b.Property<int>("Seazon")
                         .HasColumnType("int");
 
-                    b.HasKey("MatchId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("AwayTeamId");
+
+                    b.HasIndex("HomeTeamId");
 
                     b.HasIndex("LeagueId");
 
-                    b.HasIndex("Referees");
+                    b.HasIndex("RefereeId");
 
-                    b.HasIndex("AwayTeamTeamName", "AwayTeamLogo");
-
-                    b.HasIndex("HomeTeamTeamName", "HomeTeamLogo");
-
-                    b.HasIndex("MatchDateTime", "RefereeId")
-                        .IsUnique();
-
-                    b.ToTable("Match");
+                    b.ToTable("Matches");
                 });
 
             modelBuilder.Entity("LaLiga.Models.Referee", b =>
                 {
-                    b.Property<int>("RefereeId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("NameAndCountry")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int?>("Referee")
+                    b.Property<int?>("LeagueId")
                         .HasColumnType("int");
 
-                    b.HasKey("RefereeId");
+                    b.Property<string>("NameAndCountry")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("NameAndCountry")
-                        .IsUnique()
-                        .HasFilter("[NameAndCountry] IS NOT NULL");
+                    b.HasKey("Id");
 
-                    b.HasIndex("Referee");
+                    b.HasIndex("LeagueId");
 
-                    b.ToTable("Referee");
+                    b.ToTable("Referees");
                 });
 
             modelBuilder.Entity("LaLiga.Models.Team", b =>
                 {
-                    b.Property<string>("TeamName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Logo")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int?>("Team")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TeamId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.HasKey("TeamName", "Logo");
+                    b.Property<int?>("LeagueId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("Team");
+                    b.Property<string>("Logo")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("Team");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LeagueId");
+
+                    b.ToTable("Teams");
+                });
+
+            modelBuilder.Entity("LaLiga.Models.TeamMatch", b =>
+                {
+                    b.Property<int>("TeamId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Home")
+                        .HasColumnType("bit");
+
+                    b.HasKey("TeamId", "MatchId");
+
+                    b.HasIndex("MatchId");
+
+                    b.ToTable("TeamMatch");
                 });
 
             modelBuilder.Entity("LaLiga.Models.Match", b =>
                 {
+                    b.HasOne("LaLiga.Models.Team", "AwayTeam")
+                        .WithMany()
+                        .HasForeignKey("AwayTeamId");
+
+                    b.HasOne("LaLiga.Models.Team", "HomeTeam")
+                        .WithMany()
+                        .HasForeignKey("HomeTeamId");
+
                     b.HasOne("LaLiga.Models.League", "League")
                         .WithMany()
                         .HasForeignKey("LeagueId");
 
-                    b.HasOne("LaLiga.Models.Referee", null)
+                    b.HasOne("LaLiga.Models.Referee", "Referee")
                         .WithMany("Matches")
-                        .HasForeignKey("Referees");
+                        .HasForeignKey("RefereeId");
 
-                    b.HasOne("LaLiga.Models.Team", "AwayTeam")
-                        .WithMany("AwayMatches")
-                        .HasForeignKey("AwayTeamTeamName", "AwayTeamLogo");
+                    b.Navigation("AwayTeam");
 
-                    b.HasOne("LaLiga.Models.Team", "HomeTeam")
-                        .WithMany("HomeMatches")
-                        .HasForeignKey("HomeTeamTeamName", "HomeTeamLogo");
+                    b.Navigation("HomeTeam");
+
+                    b.Navigation("League");
+
+                    b.Navigation("Referee");
                 });
 
             modelBuilder.Entity("LaLiga.Models.Referee", b =>
                 {
-                    b.HasOne("LaLiga.Models.League", "RefereeLeague")
+                    b.HasOne("LaLiga.Models.League", "League")
                         .WithMany("Referees")
-                        .HasForeignKey("Referee");
+                        .HasForeignKey("LeagueId");
+
+                    b.Navigation("League");
                 });
 
             modelBuilder.Entity("LaLiga.Models.Team", b =>
                 {
-                    b.HasOne("LaLiga.Models.League", "TeamLeagues")
+                    b.HasOne("LaLiga.Models.League", "League")
                         .WithMany("Teams")
-                        .HasForeignKey("Team");
+                        .HasForeignKey("LeagueId");
+
+                    b.Navigation("League");
+                });
+
+            modelBuilder.Entity("LaLiga.Models.TeamMatch", b =>
+                {
+                    b.HasOne("LaLiga.Models.Match", "Match")
+                        .WithMany()
+                        .HasForeignKey("MatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LaLiga.Models.Team", "Team")
+                        .WithMany("Matches")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Match");
+
+                    b.Navigation("Team");
+                });
+
+            modelBuilder.Entity("LaLiga.Models.League", b =>
+                {
+                    b.Navigation("Referees");
+
+                    b.Navigation("Teams");
+                });
+
+            modelBuilder.Entity("LaLiga.Models.Referee", b =>
+                {
+                    b.Navigation("Matches");
+                });
+
+            modelBuilder.Entity("LaLiga.Models.Team", b =>
+                {
+                    b.Navigation("Matches");
                 });
 #pragma warning restore 612, 618
         }

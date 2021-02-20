@@ -12,7 +12,7 @@ namespace LaLiga.Models
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int MatchId { get; set; }
+        public int Id { get; set; }
         public int Seazon { get; set; }
         public League League { get; set; }
         public DateTime MatchDateTime { get; set; }

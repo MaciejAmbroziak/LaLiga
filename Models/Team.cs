@@ -9,21 +9,16 @@ namespace LaLiga.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int TeamId { get; set; }
-        public string TeamName { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
         public string Logo { get; set; }
+        public League League { get; set; }
 
-        public League TeamLeagues { get; set; }
-
-        [InverseProperty("HomeTeam")]
-        public ICollection<Match> HomeMatches { get; set; }
-
-        [InverseProperty("AwayTeam")]
-        public ICollection<Match> AwayMatches { get; set; }
+        public ICollection<TeamMatch> Matches { get; set; }
 
         public bool Equals(Team otherTeam)
         {
-            if (TeamName == otherTeam.TeamName && Logo == otherTeam.Logo)
+            if (Name == otherTeam.Name && Logo == otherTeam.Logo)
             {
                 return true;
             }

@@ -44,14 +44,14 @@ namespace LaLiga.Controllers
         public async Task<ActionResult<Team>> Get(int league, int seazon, Team newTeam)
         {
             Team team;
-            if(_context.Teams.Where(a=> a.TeamName == newTeam.TeamName && a.Logo == newTeam.Logo).Any())
+            if(_context.Teams.Where(a=> a.Name == newTeam.Name && a.Logo == newTeam.Logo).Any())
             {
-                team = _context.Teams.Where(a => a.TeamName == newTeam.TeamName && a.Logo == newTeam.Logo).FirstOrDefault();
+                team = _context.Teams.Where(a => a.Name == newTeam.Name && a.Logo == newTeam.Logo).FirstOrDefault();
             }
             else
             {
                 DataToTeam datafromService = new DataToTeam(_context, _apiTeam);
-                team = datafromService.Get(league, seazon).Result.Value.Where(a => a.TeamName == newTeam.TeamName).FirstOrDefault();
+                team = datafromService.Get(league, seazon).Result.Value.Where(a => a.Name == newTeam.Name).FirstOrDefault();
                 _context.Teams.Add(team);
                 await _context.SaveChangesAsync();
             }       
