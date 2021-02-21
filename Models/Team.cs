@@ -12,8 +12,7 @@ namespace LaLiga.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Logo { get; set; }
-        public League League { get; set; }
-
+        public ICollection<SeazonLeague> SeazonLeague { get; set; }
         public ICollection<TeamMatch> Matches { get; set; }
 
         public bool Equals(Team otherTeam)

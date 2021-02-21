@@ -20,6 +20,7 @@ namespace LaLiga.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TeamMatch>().HasKey(a => new { a.TeamId, a.MatchId });
+            modelBuilder.Entity<SeazonLeague>().HasKey(a => new { a.SeazonId, a.LeagueId });
         }
 
     }

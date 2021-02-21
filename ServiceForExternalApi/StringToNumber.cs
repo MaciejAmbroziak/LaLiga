@@ -26,6 +26,7 @@ namespace LaLiga.ServiceForExternalApi
                 }
                 else
                 {
+                    Console.WriteLine("Check StringToNumber class");
                     throw e;
                 }
             }

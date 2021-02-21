@@ -13,8 +13,7 @@ namespace LaLiga.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int Seazon { get; set; }
-        public League League { get; set; }
+        public SeazonLeague SeazonLeague { get; set; }
         public DateTime MatchDateTime { get; set; }
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
@@ -58,8 +57,7 @@ namespace LaLiga.Models
         {
             if (HomeTeam == otherMatch.HomeTeam &&
                 AwayTeam == otherMatch.AwayTeam &&
-                League == otherMatch.League &&
-                Seazon == otherMatch.Seazon)
+                SeazonLeague == otherMatch.SeazonLeague)
             {
                 return true;
             }

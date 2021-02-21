@@ -10,18 +10,17 @@ namespace LaLiga.ServiceForExternalApi
 {
     public class ExternalApiMatchController : Controller
     {
-        IHttpClientFactory factory;
+        private readonly HttpClient _httpClient;
         public ExternalMatch ExternalMatch { get; set; }
 
-        public ExternalApiMatchController(IHttpClientFactory myFactory)
+        public ExternalApiMatchController(HttpClient httpClient)
         {
-            factory = myFactory;
+            _httpClient = httpClient;
         }
         public async Task<ActionResult<ExternalMatch>> Get(int fixture)
         {
             string httpRequest = $"https://v3.football.api-sports.io/fixtures/statistics?fixture={fixture}";
-            var client = factory.CreateClient("ApiFootballClient");
-            var response = await client.GetAsync(httpRequest);
+            var response = await _httpClient.GetAsync(httpRequest);
             if (response.IsSuccessStatusCode)
             {
                 var responseStream = await response.Content.ReadAsStreamAsync();

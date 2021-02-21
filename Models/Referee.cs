@@ -10,7 +10,7 @@ namespace LaLiga.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string NameAndCountry { get; set; }
-        public League League { get; set; }
+        public SeazonLeague SeazonLeague { get; set; }
         public ICollection<Match> Matches { get; set; }
     }
 }
