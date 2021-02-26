@@ -2,24 +2,24 @@
 public class ExternalLeague
 {
     public string get { get; set; }
-    public object[] parameters { get; set; }
-    public object[] errors { get; set; }
+    public object parameters { get; set; }
+    public object errors { get; set; }
     public int results { get; set; }
-    public ExternalPagingLeague paging { get; set; }
-    public ExternalResponseLeague[] response { get; set; }
+    public ExternalLeaguePaging paging { get; set; }
+    public ExternalLeagueResponse[] response { get; set; }
 }
 
-public class ExternalPagingLeague
+public class ExternalLeaguePaging
 {
     public int current { get; set; }
     public int total { get; set; }
 }
 
-public class ExternalResponseLeague
+public class ExternalLeagueResponse
 {
     public ExternalLeagueLeague league { get; set; }
-    public ExternalCountryLeague country { get; set; }
-    public ExternalSeasonLaegues[] seasons { get; set; }
+    public ExternalLeagueCountry country { get; set; }
+    public ExternalLeagueSeason[] seasons { get; set; }
 }
 
 public class ExternalLeagueLeague
@@ -30,25 +30,25 @@ public class ExternalLeagueLeague
     public string logo { get; set; }
 }
 
-public class ExternalCountryLeague
+public class ExternalLeagueCountry
 {
     public string name { get; set; }
     public string code { get; set; }
     public string flag { get; set; }
 }
 
-public class ExternalSeasonLaegues
+public class ExternalLeagueSeason
 {
     public int year { get; set; }
     public string start { get; set; }
     public string end { get; set; }
     public bool current { get; set; }
-    public ExternalCoverageLeague coverage { get; set; }
+    public ExternalLeagueCoverage coverage { get; set; }
 }
 
-public class ExternalCoverageLeague
+public class ExternalLeagueCoverage
 {
-    public ExternalFixturesLeague fixtures { get; set; }
+    public ExternalLeagueFixtures fixtures { get; set; }
     public bool standings { get; set; }
     public bool players { get; set; }
     public bool top_scorers { get; set; }
@@ -56,11 +56,10 @@ public class ExternalCoverageLeague
     public bool odds { get; set; }
 }
 
-public class ExternalFixturesLeague
+public class ExternalLeagueFixtures
 {
     public bool events { get; set; }
     public bool lineups { get; set; }
     public bool statistics_fixtures { get; set; }
     public bool statistics_players { get; set; }
 }
-

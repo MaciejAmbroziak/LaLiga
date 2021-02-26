@@ -30,10 +30,12 @@ namespace LaLiga
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddControllers().AddJsonOptions(options => 
+            services.AddControllers().AddJsonOptions(options =>
             {
-                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
-            });
+                options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+
+            }
+            );
             services.AddHttpClient("ApiFootballClient", options =>
             {
                 options.BaseAddress = new Uri("https://v3.football.api-sports.io/");

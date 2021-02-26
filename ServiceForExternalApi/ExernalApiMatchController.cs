@@ -11,7 +11,6 @@ namespace LaLiga.ServiceForExternalApi
     public class ExternalApiMatchController : Controller
     {
         private readonly HttpClient _httpClient;
-        public ExternalMatch ExternalMatch { get; set; }
 
         public ExternalApiMatchController(HttpClient httpClient)
         {
@@ -20,11 +19,11 @@ namespace LaLiga.ServiceForExternalApi
         public async Task<ActionResult<ExternalMatch>> Get(int fixture)
         {
             string httpRequest = $"https://v3.football.api-sports.io/fixtures/statistics?fixture={fixture}";
-            var response = await _httpClient.GetAsync(httpRequest);
-            if (response.IsSuccessStatusCode)
+            var httpResponse = await _httpClient.GetAsync(httpRequest);
+            if (httpResponse.IsSuccessStatusCode)
             {
-                var responseStream = await response.Content.ReadAsStreamAsync();
-                ExternalMatch = await JsonSerializer.DeserializeAsync<ExternalMatch>(responseStream);
+                var responseStream = await httpResponse.Content.ReadAsStreamAsync();
+                var ExternalMatch = await JsonSerializer.DeserializeAsync<ExternalMatch>(responseStream);
                 return ExternalMatch;
             }
             return default(ExternalMatch);
