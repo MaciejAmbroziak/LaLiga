@@ -16,7 +16,8 @@ namespace LaLiga.Data
         public DbSet<Match> Matches { get; set; }
         public DbSet<League> Leagues { get; set; }
         public DbSet<Referee> Referees { get;set; }
-
+        public DbSet<SeazonLeague> SeazonLeagues { get; set; }
+        public DbSet<Seazon> Seazons { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TeamMatch>().HasKey(a => new { a.TeamId, a.MatchId });

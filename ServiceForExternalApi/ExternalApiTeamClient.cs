@@ -11,20 +11,19 @@ namespace LaLiga.ServiceForExternalApi
 {
     [Route("team")]
     [ApiController]
-    public class ExternalApiTeamController : ControllerBase
+    public class ExternalApiTeamClient : ControllerBase
     {
-        IHttpClientFactory factory;
+        private readonly HttpClient _client;
         public ExternalTeam ExternalTeam { get; set; }
 
-        public ExternalApiTeamController(IHttpClientFactory myFactory)
+        public ExternalApiTeamClient(IHttpClientFactory myFactory)
         {
-            factory = myFactory;
+            _client = myFactory.CreateClient("ApiFootballClient");
         }
         public async Task<ActionResult<ExternalTeam>> Get(int seazon, int league)
         {
             string httpRequest = $"https://v3.football.api-sports.io/teams?league={league}&season={seazon}";
-            var client = factory.CreateClient("ApiFootballClient");
-            var response = await client.GetAsync(httpRequest);
+            var response = await _client.GetAsync(httpRequest);
             if (response.IsSuccessStatusCode)
             {
                 var responseStream = await response.Content.ReadAsStreamAsync();

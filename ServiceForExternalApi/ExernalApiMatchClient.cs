@@ -12,9 +12,9 @@ namespace LaLiga.ServiceForExternalApi
     {
         private readonly HttpClient _httpClient;
 
-        public ExternalApiMatchController(HttpClient httpClient)
+        public ExternalApiMatchController(IHttpClientFactory httpClientFactory)
         {
-            _httpClient = httpClient;
+            _httpClient = httpClientFactory.CreateClient("ApiFootballClient");
         }
         public async Task<ActionResult<ExternalMatch>> Get(int fixture)
         {

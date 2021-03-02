@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaLiga.Migrations
 {
     [DbContext(typeof(MyAppContext))]
-    [Migration("20210221145335_InitialMigration")]
+    [Migration("20210302170348_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,6 +27,9 @@ namespace LaLiga.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ExternalApiId")
                         .HasColumnType("int");
@@ -214,20 +217,18 @@ namespace LaLiga.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("LeagueId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("SeazonEnd")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("SeazonYear")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("SezonBeginning")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LeagueId");
-
-                    b.ToTable("Seazon");
+                    b.ToTable("Seazons");
                 });
 
             modelBuilder.Entity("LaLiga.Models.SeazonLeague", b =>
@@ -239,7 +240,9 @@ namespace LaLiga.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("TeamId")
                         .HasColumnType("int");
@@ -250,7 +253,7 @@ namespace LaLiga.Migrations
 
                     b.HasIndex("TeamId");
 
-                    b.ToTable("SeazonLeague");
+                    b.ToTable("SeazonLeagues");
                 });
 
             modelBuilder.Entity("LaLiga.Models.Team", b =>
@@ -297,6 +300,21 @@ namespace LaLiga.Migrations
                     b.ToTable("TeamMatch");
                 });
 
+            modelBuilder.Entity("LeagueSeazon", b =>
+                {
+                    b.Property<int>("LeagueId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SeazonsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LeagueId", "SeazonsId");
+
+                    b.HasIndex("SeazonsId");
+
+                    b.ToTable("LeagueSeazon");
+                });
+
             modelBuilder.Entity("LaLiga.Models.Match", b =>
                 {
                     b.HasOne("LaLiga.Models.Team", "AwayTeam")
@@ -335,15 +353,6 @@ namespace LaLiga.Migrations
                         .HasForeignKey("SeazonLeagueSeazonId", "SeazonLeagueLeagueId");
 
                     b.Navigation("SeazonLeague");
-                });
-
-            modelBuilder.Entity("LaLiga.Models.Seazon", b =>
-                {
-                    b.HasOne("LaLiga.Models.League", "League")
-                        .WithMany("Seazons")
-                        .HasForeignKey("LeagueId");
-
-                    b.Navigation("League");
                 });
 
             modelBuilder.Entity("LaLiga.Models.SeazonLeague", b =>
@@ -395,11 +404,24 @@ namespace LaLiga.Migrations
                     b.Navigation("Team");
                 });
 
+            modelBuilder.Entity("LeagueSeazon", b =>
+                {
+                    b.HasOne("LaLiga.Models.League", null)
+                        .WithMany()
+                        .HasForeignKey("LeagueId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LaLiga.Models.Seazon", null)
+                        .WithMany()
+                        .HasForeignKey("SeazonsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("LaLiga.Models.League", b =>
                 {
                     b.Navigation("Referees");
-
-                    b.Navigation("Seazons");
 
                     b.Navigation("Teams");
                 });

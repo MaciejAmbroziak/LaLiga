@@ -33,9 +33,8 @@ namespace LaLiga
             services.AddControllers().AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-
-            }
-            );
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+            });
             services.AddHttpClient("ApiFootballClient", options =>
             {
                 options.BaseAddress = new Uri("https://v3.football.api-sports.io/");

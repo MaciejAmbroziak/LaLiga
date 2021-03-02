@@ -19,9 +19,15 @@ namespace LaLiga.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Country { get; set; }
         public int ExternalApiId { get; set; }
         public ICollection<Seazon> Seazons { get; set; }
         public ICollection<Team> Teams { get; set; }
         public ICollection<Referee> Referees { get; set; }
+        
+        public bool Equals(League league)
+        {
+            return league.Name == Name && league.Country == Country;
+        }
     }
 }

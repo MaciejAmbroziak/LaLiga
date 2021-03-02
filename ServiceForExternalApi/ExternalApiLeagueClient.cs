@@ -11,12 +11,10 @@ namespace LaLiga.ServiceForExternalApi
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ExternalApiLeagueController : ControllerBase
+    public class ExternalApiLeagueClient : ControllerBase
     {
-        private readonly HttpClient _httpClient;
-        public ExternalMatch ExternalMatch { get; set; }
-        
-        public ExternalApiLeagueController(IHttpClientFactory httpClientFactory)
+        private readonly HttpClient _httpClient;       
+        public ExternalApiLeagueClient(IHttpClientFactory httpClientFactory)
         {
             _httpClient = httpClientFactory.CreateClient("ApiFootballClient");
         }
@@ -24,19 +22,13 @@ namespace LaLiga.ServiceForExternalApi
         [HttpGet]
         public async Task<ActionResult<ExternalLeague>> Get()
         {
-            var options = new JsonSerializerOptions
-            {
-
-            };
-            CancellationTokenSource cancell = new CancellationTokenSource();     
             string httpRequestString = $"https://v3.football.api-sports.io/leagues";
-            cancell.CancelAfter(100000);
-            var httpResponse = await _httpClient.GetAsync(new Uri(httpRequestString), cancell.Token);
+            var httpResponse = await _httpClient.GetAsync(new Uri(httpRequestString));
             if (httpResponse.IsSuccessStatusCode)
             {
 
-                var responseStream = await httpResponse.Content.ReadAsStreamAsync(cancell.Token);
-                return await JsonSerializer.DeserializeAsync<ExternalLeague>(responseStream, options, cancell.Token);
+                var responseStream = await httpResponse.Content.ReadAsStreamAsync();
+                return await JsonSerializer.DeserializeAsync<ExternalLeague>(responseStream);
             }
             return default(ExternalLeague);
         }

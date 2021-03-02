@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LaLiga.Data;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,20 +9,21 @@ using System.Threading.Tasks;
 
 namespace LaLiga.ServiceForExternalApi
 {
-    public class ExternalApiLeagueInSeazonController : Controller
+    public class ExternalApiLeagueInSeazonClient : Controller
     {
-        IHttpClientFactory factory;
+        HttpClient _httpClient;
         public ExternalLeagueInSeazon ExternalLeagueInSeazon { get; set; }
 
-        public ExternalApiLeagueInSeazonController(IHttpClientFactory myFactory)
+        public ExternalApiLeagueInSeazonClient(IHttpClientFactory myFactory)
         {
-            factory = myFactory;
+            _httpClient = myFactory.CreateClient("ApiFootballClient");
         }
+
+       // public async Task<ActionResult<>>
         public async Task<ActionResult<ExternalLeagueInSeazon>> Get(int league, int seazon)
         {
             string httpRequest = $"https://v3.football.api-sports.io/fixtures?league={league}&season={seazon}";
-            var client = factory.CreateClient("ApiFootballClient");
-            var response = await client.GetAsync(httpRequest);
+            var response = await _httpClient.GetAsync(httpRequest);
             if (response.IsSuccessStatusCode)
             {
                 var responseStream = await response.Content.ReadAsStreamAsync();
